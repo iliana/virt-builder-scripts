@@ -17,7 +17,7 @@ virt-builder debian-9 -o "$WORKDIR/image" --format raw \
 	--root-password disabled \
 	--timezone UTC \
 	--hostname "$HOSTNAME" \
-	--update --install e2fsprogs,cloud-guest-utils,sudo \
+	--update --install cloud-guest-utils,e2fsprogs,htop,sudo,vim --uninstall rsyslog \
 	--write /usr/sbin/policy-rc.d:'exit 101' --chmod 0755:/usr/sbin/policy-rc.d \
 	--write /etc/sudoers.d/nopasswd:'%sudo ALL=(ALL:ALL) NOPASSWD: ALL' --chmod 0440:/etc/sudoers.d/nopasswd \
 	--write /etc/apt/sources.list.d/backports.list:'deb http://ftp.debian.org/debian stretch-backports main' \
